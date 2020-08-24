@@ -1,4 +1,4 @@
-/*require('dotenv').config();
+require('dotenv').config();
 
 const { execSync } = require('child_process');
 
@@ -31,7 +31,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns favorites', async(done) => {
+    /*test('returns favorites', async(done) => {
 
       const expectation = [
         {
@@ -83,6 +83,6 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
 
       done();
-    });
+    });*/
   });
-});*/
+});
