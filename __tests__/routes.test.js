@@ -1,4 +1,4 @@
-require('dotenv').config();
+/*require('dotenv').config();
 
 const { execSync } = require('child_process');
 
@@ -85,4 +85,4 @@ describe('app routes', () => {
       done();
     });
   });
-});
+});*/
