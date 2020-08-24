@@ -29,42 +29,6 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns favorites', async(done) => {
-
-      const expectation = [
-        {
-          id: 1,
-          category: 'Science: Computers',
-          type: 'multiple',
-          difficulty: 'easy',
-          question: 'When Gmail first launched, how much storage did it provide for your email?',
-          correct_answer: '1GB',
-          incorrect_answers: '["512MB","5GB","Unlimited"]',
-          user_id: 1
-        },
-        {
-          id: 2,
-          category: 'Geography',
-          type: 'boolean',
-          difficulty: 'medium',
-          question: 'The title of the 1969 film &quot;Krakatoa, East_of Java&quot; is incorrect, as Krakatoa is in fact west of Java.',
-          correct_answer: 'True',
-          incorrect_answers: '["False"]',
-          user_id: 1
-        }
-      ];
-
-      const data = await fakeRequest(app)
-        .get('/api/favorites')
-        .set('Authorization', token)
-        .expect('Content-Type', /json/)
-        .expect(200);
-
-      expect(data.body).toEqual(expectation);
-
-      done();
-    });
-
     const testQuestion = {
       category: 'Science: Computers',
       type: 'multiple',
@@ -114,6 +78,32 @@ describe('app routes', () => {
 
       const data = await fakeRequest(app)
         .get('/api/favorites/3')
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+
+      done();
+    });
+
+    test('returns favorites', async(done) => {
+
+      const expectation = [
+        {
+          id: 3,
+          category: 'Science: Computers',
+          type: 'multiple',
+          difficulty: 'easy',
+          question: 'When Gmail first launched, how much storage did it provide for your email?',
+          correct_answer: '1GB',
+          incorrect_answers: '["512MB","5GB","Unlimited"]',
+          user_id: 2,
+        }
+      ];
+
+      const data = await fakeRequest(app)
+        .get('/api/favorites')
         .set('Authorization', token)
         .expect('Content-Type', /json/)
         .expect(200);
