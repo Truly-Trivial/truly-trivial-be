@@ -24,18 +24,17 @@ async function run() {
       
     const user = users[0].rows[0];
 
-    await Promise.all(
+    const data = await Promise.all(
       favorites.map(favorite => {
         const stringyIncorrectAnswers = JSON.stringify(favorite.incorrect_answers);
         return client.query(`
-                    INSERT INTO favorites (category, type, difficulty, question, correct_answer, incorrect_answers,user_id)
+                    INSERT INTO favorites (category, type, difficulty, question, correct_answer, incorrect_answers, user_id)
                     VALUES ($1, $2, $3, $4, $5, $6, $7);
                 `,
         [favorite.category, favorite.type, favorite.difficulty, favorite.question, favorite.correct_answer, stringyIncorrectAnswers, user.id]);
       })
     );
-    
-
+    console.log(data);
     console.log('seed data load complete', getEmoji(), getEmoji(), getEmoji());
   }
   catch(err) {
