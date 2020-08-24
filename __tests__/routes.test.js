@@ -148,6 +148,19 @@ describe('app routes', () => {
       done();
     });
 
+    test('returns any string', async(done) => {
+
+      const data = await fakeRequest(app)
+        .get('/api/questions?searchQuery=amount=1')
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body.results[0].question).toEqual(expect.any(String));
+
+      done();
+    });
+
     
   });
 });
