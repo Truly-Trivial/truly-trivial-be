@@ -11,5 +11,16 @@ module.exports = [
       'Unlimited'
     ]
   },
+
+  {
+    category: 'Geography',
+    type: 'boolean',
+    difficulty: 'medium',
+    question: 'The title of the 1969 film &quot;Krakatoa, East_of Java&quot; is incorrect, as Krakatoa is in fact west of Java.',
+    correct_answer: 'True',
+    incorrect_answers: [
+      'False'
+    ]
+  },
   
 ];
