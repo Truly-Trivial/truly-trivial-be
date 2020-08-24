@@ -1,7 +1,5 @@
 require('dotenv').config();
-
 const { execSync } = require('child_process');
-
 const fakeRequest = require('supertest');
 const app = require('../lib/app');
 const client = require('../lib/client');
@@ -31,7 +29,6 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-
     test('returns favorites', async(done) => {
 
       const expectation = [
@@ -43,18 +40,17 @@ describe('app routes', () => {
           question: 'When Gmail first launched, how much storage did it provide for your email?',
           correct_answer: '1GB',
           incorrect_answers: '["512MB","5GB","Unlimited"]',
-          user_id: 1,
+          user_id: 1
         },
-
         {
+          id: 2,
           category: 'Geography',
           type: 'boolean',
           difficulty: 'medium',
-          id: 2,
           question: 'The title of the 1969 film &quot;Krakatoa, East_of Java&quot; is incorrect, as Krakatoa is in fact west of Java.',
           correct_answer: 'True',
           incorrect_answers: '["False"]',
-          user_id: 1,
+          user_id: 1
         }
       ];
 
@@ -160,7 +156,5 @@ describe('app routes', () => {
 
       done();
     });
-
-    
   });
 });
