@@ -124,7 +124,7 @@ describe('app routes', () => {
     //   ];
 
     //   const data = await fakeRequest(app)
-    //     .get('/api/favorites/2')
+    //     .get('/api/favorites/3')
     //     .set('Authorization', token)
     //     .expect('Content-Type', /json/)
     //     .expect(200);
@@ -133,5 +133,7 @@ describe('app routes', () => {
 
     //   done();
     // });
+
+    
   });
 });
